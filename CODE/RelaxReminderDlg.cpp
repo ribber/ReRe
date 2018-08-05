@@ -1109,7 +1109,7 @@ void CRelaxReminderDlg::RelaxNotify()
             GetFixedColonTime());
         m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_DELAY)->EnableWindow(FALSE);
         m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_SKIP)->EnableWindow(FALSE);
-        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(FALSE);
+        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(TRUE);
     }
     
     // 更新任务栏提示窗口显示的时间
