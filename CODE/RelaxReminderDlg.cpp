@@ -69,7 +69,7 @@ static char THIS_FILE[] = __FILE__;
 #define VERSION_0_8_4    0x00080400
 
 // 休息预提示窗口的显示时间
-#define PRE_NOTIFY_WINDOW_TTL               11
+#define PRE_NOTIFY_WINDOW_TTL               50
 
 // TrayWindow比ScrMask延迟显示的时间(单位：秒)
 #define TRAY_WINDOW_DELAY                   1
@@ -1057,7 +1057,7 @@ void CRelaxReminderDlg::PreRelaxNotify()
                     "01:00");
                 m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_DELAY)->EnableWindow(FALSE);
                 m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_SKIP)->EnableWindow(FALSE);
-                m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(FALSE);
+                m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(TRUE);
             }
             if (nWorkTimeLeft < 60 && nWorkTimeLeft >= 60 - PRE_NOTIFY_WINDOW_TTL)
             {
@@ -1157,6 +1157,7 @@ void CRelaxReminderDlg::RelaxNotifyEnd()
     LockKeyBoardAndMouse(FALSE);
     HideDarkerScreen();
     m_dlgRelaxNotify.DeleteTrayWindow();
+    MessageBox("已完成");
 }
 
 void CRelaxReminderDlg::ProcessIconStatus()

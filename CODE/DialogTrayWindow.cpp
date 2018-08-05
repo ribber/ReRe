@@ -268,9 +268,9 @@ void CDialogTrayWindow::OnButtonHide()
 void CDialogTrayWindow::OnRButtonUp(UINT nFlags, CPoint point) 
 {
     // TODO: Add your message handler code here and/or call default
-    m_pwndParent->ShowRightClickMenu();
+    //m_pwndParent->ShowRightClickMenu();
 
-    CDialog::OnRButtonUp(nFlags, point);
+    //CDialog::OnRButtonUp(nFlags, point);
 }
 
 BOOL CDialogTrayWindow::PreTranslateMessage(MSG* pMsg)
