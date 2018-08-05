@@ -1055,6 +1055,9 @@ void CRelaxReminderDlg::PreRelaxNotify()
                 m_dlgRelaxNotify.ShowTrayWindow(
                     m_str.GetStr(TRAY_WINDOW_CAPTION_NEXT_RELAX), 
                     "01:00");
+                m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_DELAY)->EnableWindow(FALSE);
+                m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_SKIP)->EnableWindow(FALSE);
+                m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(FALSE);
             }
             if (nWorkTimeLeft < 60 && nWorkTimeLeft >= 60 - PRE_NOTIFY_WINDOW_TTL)
             {
@@ -1104,6 +1107,9 @@ void CRelaxReminderDlg::RelaxNotify()
         m_dlgRelaxNotify.ShowTrayWindow(
             m_str.GetStr(bShortRelax ? TRAY_WINDOW_CAPTION_SHORT_RELAX : TRAY_WINDOW_CAPTION_LONG_RELAX),
             GetFixedColonTime());
+        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_DELAY)->EnableWindow(FALSE);
+        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_SKIP)->EnableWindow(FALSE);
+        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(FALSE);
     }
     
     // 更新任务栏提示窗口显示的时间
@@ -1127,9 +1133,10 @@ void CRelaxReminderDlg::RelaxNotify()
             LockMouse(TRUE);
             break;
         }
-        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_DELAY)->EnableWindow(FALSE);
-        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_SKIP)->EnableWindow(FALSE);
-        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(FALSE);
+        m_dlgRelaxNotify.DeleteTrayWindow();
+//        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_DELAY)->EnableWindow(FALSE);
+//        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_SKIP)->EnableWindow(FALSE);
+//        m_dlgRelaxNotify.GetDlgItem(IDC_BUTTON_HIDE)->EnableWindow(FALSE);
     }
     
     // 如果启用了锁定计算机，则在休息开始后17秒钟时锁定
